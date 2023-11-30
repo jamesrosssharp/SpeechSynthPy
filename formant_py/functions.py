@@ -57,3 +57,20 @@ def LPCDecode(LPC, orig_length, length, period, gain, wav, samplerate):
     dsyn *= 32768.0
 
     wavfile.write(wav, samplerate, dsyn.astype(np.int16))
+
+def LPCDecodeNoise(LPC, orig_length, length, period, gain, wav, samplerate):
+
+    # Synthesize
+
+    syn = np.random.normal(0, 0.1, length)
+
+
+    dsyn = lfilter([1], LPC, syn) * gain
+
+    plt.plot(dsyn[:orig_length], 'k')
+    plt.show()
+
+    dsyn *= 32768.0
+
+    wavfile.write(wav, samplerate, dsyn.astype(np.int16))
+
