@@ -2,7 +2,7 @@ import functions
 import numpy as np
 
 from scipy.io import wavfile
-samplerate, data = wavfile.read('../samples/ll.wav')
+samplerate, data = wavfile.read('../samples/ll3.wav')
 
 decim = 8
 

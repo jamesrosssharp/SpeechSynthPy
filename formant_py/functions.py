@@ -33,7 +33,10 @@ def LPCEncode(data, decim, n = 10):
     #n = 10
     LPC = Levinson(data, n)
     LPC = np.insert(-LPC, 0, 1)
-    print(LPC)
+#    print(LPC)
+    for c in LPC:
+        print(" %f," % c, end = '')
+    print()
 
     plt.plot(data)
     return LPC
